@@ -1,19 +1,29 @@
-char* p()
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+
+void p(void)
 {
-    fflush(stdout);
-    void var_50;
-    gets(&var_50);
-    if ((__return_addr & 0xb0000000) != 0xb0000000)
-    {
-        puts(&var_50);
-        return strdup(&var_50);
-    }
-    printf("(%p)\n", __return_addr);
-    _exit(1);
-    /* no return */
+  uint unaff_retaddr;
+  char str [76];
+  
+  fflush(stdout);
+  gets(str);
+  if ((unaff_retaddr & 0xb0000000) == 0xb0000000) {
+    printf("(%p)\n",unaff_retaddr);
+    exit(1);
+  }
+  puts(str);
+  strdup(str);
+  return;
 }
 
-int32_t main(int32_t argc, char** argv, char** envp)
+
+
+void main(void)
+
 {
-    return p();
+  p();
+  return;
 }
