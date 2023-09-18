@@ -8,7 +8,7 @@ test test
 test test
 >level2@RainFall:~$
 
-# This program don't take argument but read stdin and display what we have write.
+# This program don't take argument, read stdin and display what we have write.
 
 # Let's use gdb to investigate
 
