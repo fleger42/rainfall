@@ -23,14 +23,14 @@ int main(int ac, char *av[])
   
   first = malloc(8);
   *first = 1;
-  first[1] = malloc(8);
+  first[1] = (int)malloc(8);
 
   second = malloc(8);
   *second = 2;
-  second[1] = malloc(8);
+  second[1] = (int)malloc(8);
 
-  strcpy(first[1],av[1]);
-  strcpy(second[1],av[2]);
+  strcpy(&first[1],av[1]);
+  strcpy(&second[1],av[2]);
   stream = fopen("/home/user/level8/.pass","r");
   fgets(c,68,stream);
   puts("~~");
